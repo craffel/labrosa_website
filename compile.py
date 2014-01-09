@@ -41,10 +41,11 @@ def error(message):
 # <codecell>
 
 # Make sure the appropriate site directories exist
-os.makedirs('site/people/')
-os.makedirs('site/projects/')
-os.makedirs('site/publications/')
-os.makedirs('site/contact')
+for directory in ['people', 'projects', 'publications', 'contact']:
+    try:
+        os.makedirs(os.path.join('site', directory))
+    except:
+        pass
 
 # <codecell>
 
@@ -87,8 +88,4 @@ people['people'].sort(lambda a, b: cmp(statuses.index(a), statuses.index(b)), la
 
 # Write out the .html file
 lazyweb.compile('templates/people.tpl', people, 'site/people/index.html')
-
-# <codecell>
-
-help(os.makedirs)
 
