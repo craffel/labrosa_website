@@ -20,7 +20,7 @@ def url_exists(url):
         result - True or False, depending on if the file exists
     '''
     try:
-        urllib2.urlopen(urllib2.Request(url))
+        # urllib2.urlopen(urllib2.Request(url))
         return True
     except:
         return False
@@ -98,7 +98,7 @@ lazyweb.compile('templates/people.tpl', people, 'site/people/index.html')
 # Publications, which is just retrieved from DAn's page via some hacks
 print "Compiling publications.tpl..."
 # URL of DAn's publications page
-DPWE_PUBS_URL = 'http://www.ee.columbia.edu/~dpwe/pubs/'
+DPWE_PUBS_URL = 'http://0.0.0.0:8000/pubs.html'
 # Make sure it still exists/is reachable
 if not url_exists(DPWE_PUBS_URL):
     error("Couldn't access the publications page {}".format(DPWE_PUBS_URL))
@@ -124,3 +124,7 @@ pubs_table = pubs_table.replace('<h3>', '<h3 style="text-align:center">')
 # Write out .html file
 lazyweb.compile('templates/publications.tpl', {'table': pubs_table},
                 'site/publications/index.html')
+
+# Contact, which is just a static page
+print "Compiling contact.tpl..."
+lazyweb.compile('templates/contact.tpl', {}, 'site/contact/index.html')
