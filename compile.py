@@ -86,6 +86,10 @@ for person in people['people']:
 # Sort people list by status, according to the order of the statuses list
 people['people'].sort(lambda a, b: cmp(statuses.index(a), statuses.index(b)), lambda x: x['status'])
 
+# TODO: Obfuscate all email addresses
+# for person in people['people']:
+# person['email'] = obfuscate_email(person['email'])
+
 # Write out the .html file
 lazyweb.compile('templates/people.tpl', people, 'site/people/index.html')
 
