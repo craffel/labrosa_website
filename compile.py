@@ -93,3 +93,34 @@ people['people'].sort(lambda a, b: cmp(statuses.index(a), statuses.index(b)),
 
 # Write out the .html file
 lazyweb.compile('templates/people.tpl', people, 'site/people/index.html')
+
+
+# Publications, which is just retrieved from DAn's page via some hacks
+print "Compiling publications.tpl..."
+# URL of DAn's publications page
+DPWE_PUBS_URL = 'http://www.ee.columbia.edu/~dpwe/pubs/'
+# Make sure it still exists/is reachable
+if not url_exists(DPWE_PUBS_URL):
+    error("Couldn't access the publications page {}".format(DPWE_PUBS_URL))
+# Get the raw HTML from DAn's pub page
+raw_pubs_data = urllib2.urlopen(DPWE_PUBS_URL).read().decode('ascii', 'ignore')
+# Find the start and end of the actual pubs table
+table_start = raw_pubs_data.find(
+    '<table border="0" cellspacing="5" cellpadding="5" width="100%">')
+# Raise an error if the HTML has changed
+if table_start == -1:
+    error("Couldn't find the start of the publications table from {}. Its "
+          "format may have changed.".format(DPWE_PUBS_URL))
+table_end = raw_pubs_data.find(
+    '<td valign="TOP" bgcolor="#fff4e6" colspan="3">\n<h4>2000</h4>')
+if table_end == -1:
+    error("Couldn't find the end of the publications table from {}. Its "
+          "format may have changed.".format(DPWE_PUBS_URL))
+# Extract just the table HTML
+pubs_table = raw_pubs_data[table_start:table_end]
+# Change some formatting to make it fit in
+pubs_table = pubs_table.replace('<a name', '<a style="color:black" name')
+pubs_table = pubs_table.replace('<h3>', '<h3 style="text-align:center">')
+# Write out .html file
+lazyweb.compile('templates/publications.tpl', {'table': pubs_table},
+                'site/publications/index.html')
