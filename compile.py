@@ -131,3 +131,7 @@ lazyweb.compile('templates/publications.tpl', {'table': pubs_table},
 # Contact, which is just a static page
 print "Compiling contact.tpl..."
 lazyweb.compile('templates/contact.tpl', {}, 'site/contact/index.html')
+
+# Index, also a static HTML page
+print "Compiling index.tpl..."
+lazyweb.compile('templates/index.tpl', {}, 'site/index.html')
