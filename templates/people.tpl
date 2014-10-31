@@ -1,4 +1,6 @@
+{% with "People" as page %}
 {% include "header.tpl" %}
+{% endwith %}
 
 <h2>People</h2>
 
