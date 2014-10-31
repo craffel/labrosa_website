@@ -74,6 +74,9 @@ for person in people['people']:
         error("{}'s photo {} does not exist (should be an absolute url, e.g."
               " http://google.com/me.jpg).".format(
                   person['name'], person['photo']))
+    # TODO: Check photo image size
+    # TODO: Check photo image dimensions
+    # TODO: Check that the photo is actually a photo
     # Check that the status is valid
     if person['status'] not in statuses:
         error("{}'s status {} is not valid, should be one of {}".format(
