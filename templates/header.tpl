@@ -17,7 +17,7 @@ body > *
 {
     width: 890px;
     padding: 20px;
-    margin: 20px auto;
+    margin: 16px auto;
     background: white;
 }
 
@@ -45,7 +45,7 @@ a
     text-align: right;
     position: absolute;
     right: 30px;
-    bottom: 30px;
+    bottom: 24px;
 }
 
 .topRow
@@ -72,7 +72,7 @@ a
 <body>
 <div id="header">
 <!-- <h1>Lab<font style="color:#FF00FF">ROSA</font></h1>//-->
-<img src="/files/labROSA-header.png" style="height: 150px" />
+<img src="/files/labROSA-header.png" style="height: 70px" />
 <div id="menu">
 <a href="/">About</a>
 <a href="/people">People</a>
