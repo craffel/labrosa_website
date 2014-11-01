@@ -29,6 +29,19 @@ Each person has the following fieds:
 * status - The persons's status at LabROSA.  For consistency, it **must** be one of "Principal Investigator", "PhD Candidate", "Graduate Research Assistant", "Post-Doctoral Research Assistant", "Undergraduate Research Assistant", "Visiting Researcher", "PhD Graduate", "Staff", "Other Researcher", "Friend", or "Past Member/Visitor".
 * research - A brief statement of the persons research focus, 100 characters or less.
 * url - An absolute URL to the person's homepage, e.g. http://google.com
+The list of people will be sorted by each person's status, in the order listed above.
+
+
+Projects
+--------
+
+Each entry in the projects.json file corresponds to a research project undertaken at LabROSA.
+The projects will appear on the page in the same order that they appear in the json file.
+Each project has the following fields:
+* name - The name of the project
+* image - An absolute URL to an icon image which represents the project, e.g. http://google.com/me.jpg The image should be approximately 60 x 60 pixels.
+* description - A brief description of the projec, 200 characters or less.
+* url - An absolute URL to the project's homepage, e.g. http://google.com
 
 
 Publications
@@ -44,3 +57,9 @@ Contact
 -------
 
 The contact page is static; all of its content is contained in the template file.
+
+
+About
+-------
+
+The about (index) page is also static; all of its content is contained in the template file.
