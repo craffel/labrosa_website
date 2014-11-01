@@ -1,0 +1,12 @@
+{   "projects": [
+        {"name":      "librosa",
+         "image":     "/files/librosa.png",
+         "description":    "librosa is a Python library which includes common tools for low- and high-level signal-based music analysis.",
+         "url":       "http://github.com/bmcfee/librosa"},
+
+        {"name":      "pretty_midi",
+         "image":     "/files/pretty_midi.png",
+         "description":    "pretty_midi is a Python library which makes it easy to create, manipulate, and extract information from MIDI files.",
+         "url":       "http://github.com/craffel/pretty-midi"}
+    ]
+}
