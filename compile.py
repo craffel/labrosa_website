@@ -135,3 +135,32 @@ lazyweb.compile('templates/contact.tpl', {}, 'site/contact/index.html')
 # Index, also a static HTML page
 print "Compiling index.tpl..."
 lazyweb.compile('templates/index.tpl', {}, 'site/index.html')
+
+# Projects page
+print "Compiling projects.tpl..."
+
+# Load in projects .json file
+with open('data/projects.json', 'r') as f:
+    projects = json.loads(f.read())
+# Validate all entries
+for project in projects['projects']:
+    # Check that their homepage exists
+    if not url_exists(project['url']):
+        error("Project {}'s URL {} does not exist (should be an absolute url, "
+              "e.g. http://google.com).".format(
+                  project['name'], project['url']))
+    # Check that the photo URL exists
+    if not url_exists(project['image']):
+        error("Project {}'s image {} does not exist (should be an absolute "
+              "url, e.g. http://google.com/me.jpg).".format(
+                  project['name'], project['photo']))
+    # TODO: Check image size
+    # TODO: Check image dimensions
+    # TODO: Check that the image is actually a photo
+    # Check that the description is not too long
+    if len(project['description']) > 200:
+        error("Project {}'s description is too long (longer than 200 "
+              "characters)".format(project['name']))
+
+# Write out the .html file
+lazyweb.compile('templates/projects.tpl', projects, 'site/projects/index.html')
