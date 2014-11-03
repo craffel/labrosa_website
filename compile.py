@@ -4,7 +4,6 @@ Compiles the LabROSA webpage.
 
 import lazyweb
 import os
-import sys
 import urllib2
 import ujson as json
 import re
@@ -80,17 +79,6 @@ def validate_image(url, max_size_kb=100, wh_ratio_min=.5, wh_ratio_max=1.8):
     image_file.close()
 
 
-def error(message):
-    '''
-    Print an error message and exit.
-
-    Input:
-        message - error message to print
-    '''
-    print "ERROR: {}".format(message)
-    sys.exit(-1)
-
-
 # Make sure the appropriate site directories exist
 for directory in ['people', 'projects', 'publications', 'contact']:
     try:
@@ -126,12 +114,14 @@ for person in people['people']:
     validate_image(person['photo'])
     # Check that the status is valid
     if person['status'] not in statuses:
-        error("{}'s status {} is not valid, should be one of {}".format(
-            person['name'], person['status'], ", ".join(statuses)))
+        raise ValueError("{}'s status {} is not valid, should be one of "
+                         "{}".format(
+                             person['name'], person['status'],
+                             ", ".join(statuses)))
     # Check that their research description is not too long
     if len(person['research']) > 100:
-        error("{}'s research description is too long (longer than 100 "
-              "characters)".format(person['name']))
+        raise ValueError("{}'s research description is too long (longer than "
+                         "100 characters)".format(person['name']))
 
 # Sort people list by status, according to the order of the statuses list
 people['people'].sort(lambda a, b: cmp(statuses.index(a), statuses.index(b)),
@@ -158,13 +148,13 @@ table_start = raw_pubs_data.find(
     '<TABLE BORDER="0" CELLSPACING="5" CELLPADDING="5" WIDTH="100%">')
 # Raise an error if the HTML has changed
 if table_start == -1:
-    error("Couldn't find the start of the publications table from {}. Its "
-          "format may have changed.".format(DPWE_PUBS_URL))
+    raise ValueError("Couldn't find the start of the publications table from "
+                     " {}. Its format may have changed.".format(DPWE_PUBS_URL))
 table_end = raw_pubs_data.find(
     '<TD VALIGN="TOP" BGCOLOR="#fff4e6" COLSPAN="3">\n<H4>2000</H4>')
 if table_end == -1:
-    error("Couldn't find the end of the publications table from {}. Its "
-          "format may have changed.".format(DPWE_PUBS_URL))
+    raise ValueError("Couldn't find the end of the publications table from {}."
+                     "  Its format may have changed.".format(DPWE_PUBS_URL))
 # Extract just the table HTML
 pubs_table = raw_pubs_data[table_start:table_end]
 # Change some formatting to make it fit in
@@ -200,8 +190,8 @@ for project in projects['projects']:
     validate_image(project['image'])
     # Check that the description is not too long
     if len(project['description']) > 200:
-        error("Project {}'s description is too long (longer than 200 "
-              "characters)".format(project['name']))
+        raise ValueError("Project {}'s description is too long (longer than "
+                         "200 characters)".format(project['name']))
 
 # Write out the .html file
 lazyweb.compile('templates/projects.tpl', projects, 'site/projects/index.html')
