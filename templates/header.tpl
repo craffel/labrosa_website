@@ -84,3 +84,5 @@ a
 
 <div id ="main">
 
+<h2>{{ page }}</h2>
+

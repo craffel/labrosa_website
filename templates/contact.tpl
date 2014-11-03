@@ -1,8 +1,6 @@
 {% set page = "Contact" %}
 {% include "header.tpl" %}
 
-<h2>Contact</h2>
-
 <b>Principal Investigator:</b><br />
 Dan Ellis<br />
 Professor of Electrical Engineering<br />

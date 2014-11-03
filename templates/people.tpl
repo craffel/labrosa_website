@@ -1,8 +1,6 @@
 {% set page = "People" %}
 {% include "header.tpl" %}
 
-<h2>People</h2>
-
 {% if people %}
     <table id="peopleTable">
         <tr class="topRow">

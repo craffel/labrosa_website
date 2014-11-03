@@ -1,8 +1,6 @@
 {% set page = "Projects" %}
 {% include "header.tpl" %}
 
-<h2>Projects</h2>
-
 {% if projects %}
     <table id="peopleTable">
     {% for project in projects %}

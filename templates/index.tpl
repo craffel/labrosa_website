@@ -1,8 +1,6 @@
 {% set page = "About" %}
 {% include "header.tpl" %}
 
-<h2>About</h2>
-
 <p>The Laboratory for the Recognition and Organization of Speech and Audio (<b>Lab<font color="#d773b4">ROSA</font></b>) conducts research into automatic means of extracting useful information from sound.
 Our vision is of an intelligent 'machine listener', able to interpret live or recorded sound of any type in terms of the descriptions and abstractions that would make sense to a human listener.
 Our research areas include:
