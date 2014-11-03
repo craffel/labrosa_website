@@ -8,6 +8,9 @@ import sys
 import urllib2
 import ujson as json
 import re
+import urlparse
+
+BASE_URL = 'http://0.0.0.0:8000'
 
 
 def url_exists(url):
@@ -21,7 +24,10 @@ def url_exists(url):
         result - True or False, depending on if the file exists
     '''
     try:
-        # urllib2.urlopen(urllib2.Request(url))
+        # Check if the URL is relative to document root
+        if url[:len('http://')] != 'http://':
+            url = urlparse.urljoin(BASE_URL, url)
+        urllib2.urlopen(urllib2.Request(url))
         return True
     except:
         return False
