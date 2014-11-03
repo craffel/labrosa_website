@@ -1,12 +1,143 @@
 {   "projects": [
         {"name":      "librosa",
          "image":     "/files/librosa.png",
-         "description":    "librosa is a Python library which includes common tools for low- and high-level signal-based music analysis.",
+         "description":    "A Python library which includes common tools for low- and high-level signal-based music analysis.",
          "url":       "http://github.com/bmcfee/librosa"},
 
         {"name":      "pretty_midi",
          "image":     "/files/pretty_midi.png",
-         "description":    "pretty_midi is a Python library which makes it easy to create, manipulate, and extract information from MIDI files.",
-         "url":       "http://github.com/craffel/pretty-midi"}
+         "description":    "A Python library which makes it easy to create, manipulate, and extract information from MIDI files.",
+         "url":       "http://github.com/craffel/pretty-midi"},
+
+        {"name":    "MEAP",
+         "image":   "/files/meapsoft.jpg",
+         "description":  "The Music Engineering Art Projects (a collaboration with Columbia's Computer Music Center)",
+         "url": "http://www.meapsoft.org/"},
+
+        {"name":    "Data-driven Music Understanding",
+         "image":   "/files/musicunderstanding.gif",
+         "description":  "An NSF funded project into mining for structure in music audio",
+         "url": "http://labrosa.ee.columbia.edu/projects/musicunderstanding/"},
+
+        {"url": "http://labrosa.ee.columbia.edu/projects/listenmachine/",
+         "name":    "The Listening Machine",
+         "description": "An NSF funded project into techniques for separating and recognizing sounds in mixtures",
+         "image":   "/files/listenmachine.gif"},
+
+        {"url": "http://labrosa.ee.columbia.edu/projects/consumervideo/",
+         "name":    "Consumer video classification by soundtrack",
+         "description": "Using features from the soundtrack of environmental-type recordings for classification",
+         "image":   "/files/consumervideo.jpg"},
+
+        {"url": "http://labrosa.ee.columbia.edu/projects/speechsep/",
+         "name":    "Separating Speech from Speech Noise",
+         "description": "An NSF funded project into signal separation aimed specifically at speech",
+         "image":   "/files/speechsep.jpg"},
+
+        {"url": "http://labrosa.ee.columbia.edu/projects/musicsim/",
+         "name":    "Music similarity",
+         "description": "Including a database of popular music along with a collection of subjective similarity measurements for the artists involved.",
+         "image":   "/files/musicsim.gif"},
+
+        {"url": "http://labrosa.ee.columbia.edu/projects/beattrack/",
+         "name":    "Beat tracking and tempo estimation",
+         "description": "A simple dynamic programming approach to finding the regularly-spaced events in music audio. ",
+         "image":   "/files/beattrack.png"},
+
+        {"url": "http://labrosa.ee.columbia.edu/projects/coversongs/",
+         "name":    "Cover Song Identification",
+         "description": "Trying to identify music audio that is based on the same melodic-harmonic content, despite changes in tempo, instrumentation, etc.",
+         "image":   "/files/coversongs.gif"},
+
+        {"url": "http://labrosa.ee.columbia.edu/projects/timbrechroma/",
+         "name":    "Artist Identification by Timbral and Chroma Features",
+         "description": "An implementation of a baseline artist ID system, but also trying out chroma features to see if they help.",
+         "image":   "/files/timbrechroma.jpg"},
+
+        {"url": "http://labrosa.ee.columbia.edu/projects/chords/",
+         "name":    "Chord recognition",
+         "description": "Including our submission to the 2008 MIREX Chord Recognition evaluation.",
+         "image":   "/files/chords.jpg"},
+
+        {"url": "http://labrosa.ee.columbia.edu/projects/artistid/",
+         "name":    "artist20",
+         "description": "A dataset of 20 artists (1413 tracks) plus a baseline artist identification system",
+         "image":   "/files/artistid.gif"},
+
+        {"url": "http://labrosa.ee.columbia.edu/projects/melody/",
+         "name":    "Music melody extraction",
+         "description": "Including example data for training and evaluating systems for extracting melody from ensemble music recordings",
+         "image":   "/files/melody.jpg"},
+
+        {"url": "http://labrosa.ee.columbia.edu/projects/piano/",
+         "name":    "Polyphonic piano transcription",
+         "description": "Including example data for training and evaluating piano transcription systems.",
+         "image":   "/files/piano.jpg"},
+
+        {"url": "http://labrosa.ee.columbia.edu/projects/personalaudio/",
+         "name":    "Personal Audio Life Logs",
+         "description": "Our project investigating the use of continuous audio recordings of daily life.",
+         "image":   "/files/personalaudio.jpg"},
+
+        {"url": "http://labrosa.ee.columbia.edu/projects/speech/",
+         "name":    "Speech recognition",
+         "description": "In noisy, overlapped conditions",
+         "image":   "/files/speech.jpg"},
+
+        {"url": "http://labrosa.ee.columbia.edu/projects/music/",
+         "name":    "Music analysis",
+         "description": "To recover structure, and to navigate archives",
+         "image":   "/files/music.jpg"},
+
+        {"url": "http://labrosa.ee.columbia.edu/projects/marine/",
+         "name":    "Marine Mammal Sounds",
+         "description": "Whales and dolphins in natural environments",
+         "image":   "/files/marine.jpg"},
+
+        {"url": "http://labrosa.ee.columbia.edu/projects/pitchcontour/",
+         "name":    "Pitch contour stylization",
+         "description": "Using drastically simplified pitch contours with almost no effect on perceived naturalness.",
+         "image":   "/files/pitchcontour.jpg"},
+
+        {"url": "http://labrosa.ee.columbia.edu/projects/messl/",
+         "name":    "MESSL",
+         "description": "A system for separating and localizing mulitple sound sources even in reverberation.",
+         "image":   "/files/messl.jpg"},
+
+        {"url": "http://labrosa.ee.columbia.edu/projects/snreval/",
+         "name":    "snreval",
+         "description": "Implementations of a collection of signal distortion measures for characterizing corrupted speech.",
+         "image":   "/files/snreval.png"},
+
+        {"url": "http://labrosa.ee.columbia.edu/projects/renoiser/",
+         "name":    "renoiser",
+         "description": "Tool to decompose a noisy speech file in to filtered speech component and noise, and to recombine at new SNR.",
+         "image":   "/files/renoiser.png"},
+
+        {"url": "http://labrosa.ee.columbia.edu/projects/skewview/",
+         "name":    "skewview",
+         "description": "Tool to visualize timing skew between different audio files via short-time cross-correlation.",
+         "image":   "/files/skewview.png"},
+
+        {"url": "http://labrosa.ee.columbia.edu/projects/chimefind/",
+         "name":    "chimefind",
+         "description": "Tool to locate \"chime\" sounds in long soundfiles.",
+         "image":   "/files/chimefind.png"},
+
+        {"url": "http://labrosa.ee.columbia.edu/projects/findNTs/",
+         "name":    "findNTs",
+         "description": "Tool to label \"non transmission\" (NT) regions in recorded radio signals.",
+         "image":   "/files/findNTs.png"},
+
+        {"url": "http://labrosa.ee.columbia.edu/projects/otanalyze/",
+         "name":    "otanalyze",
+         "description": "A cut-down version of renoiser that can decompose \"over the air\" recordings into a filtered version of a clean signal and a noise residual.",
+         "image":   "/files/otanalyze.png"},
+
+        {"url": "http://labrosa.ee.columbia.edu/projects/SAcC/",
+         "name":    "SAcC",
+         "description": "Noise-robust pitch detection based on trained classification of subband autocorrelation principal components.",
+         "image":   "/files/SAcC.png"}
+
     ]
 }
