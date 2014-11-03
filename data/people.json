@@ -1,6 +1,6 @@
 {   "people": [
         {"name":      "Colin Raffel",
-         "photo":     "http://www.cs.columbia.edu/igert/images/people_raffel.jpg",
+         "photo":     "/files/craffel.jpg",
          "email":     "craffel@gmail.com",
          "status":    "Graduate Research Assistant",
          "research":  "Learning-based approaches for processing audio and music signals",
