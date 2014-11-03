@@ -79,6 +79,21 @@ def validate_image(url, max_size_kb=100, wh_ratio_min=.5, wh_ratio_max=1.8):
     image_file.close()
 
 
+def obfuscate_string(value):
+    '''
+    Turns a string into a hex representation. From
+    https://github.com/morninj/django-email-obfuscator
+
+    :parameters:
+        - value : str
+            String to obfuscate.
+    :returns:
+        - obfuscated_value : str
+            Obfuscated string.
+    '''
+    return ''.join(['&#{0:s};'.format(str(ord(char))) for char in value])
+
+
 # Make sure the appropriate site directories exist
 for directory in ['people', 'projects', 'publications', 'contact']:
     try:
@@ -128,8 +143,8 @@ people['people'].sort(lambda a, b: cmp(statuses.index(a), statuses.index(b)),
                       lambda x: x['status'])
 
 # TODO: Obfuscate all email addresses
-# for person in people['people']:
-# person['email'] = obfuscate_email(person['email'])
+for person in people['people']:
+    person['email'] = obfuscate_string(person['email'])
 
 # Write out the .html file
 lazyweb.compile('templates/people.tpl', people, 'site/people/index.html')
