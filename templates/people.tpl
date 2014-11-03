@@ -14,8 +14,8 @@
         </tr>
     {% for person in people %}
         <tr style="background-color: {{loop.cycle('#FFFFFF', '#EEEEEE') }}">
-            <td><img src="{{ person.photo }}" style="height: 100px" /></td>
-            <td style="white-space: nowrap">
+            <td style="text-align: center;"><img src="{{ person.photo }}" style="height: 100px;" /></td>
+            <td style="white-space: nowrap;">
 <script type="text/javascript" language="javascript">
 <!--
 {
