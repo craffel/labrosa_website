@@ -1,6 +1,6 @@
 {   "people": [
         {"name":      "Colin Raffel",
-         "photo":     "/images/craffel.jpg",
+         "photo":     "http://www.cs.columbia.edu/igert/images/people_raffel.jpg",
          "email":     "craffel@gmail.com",
          "status":    "Graduate Research Assistant",
          "research":  "Learning-based approaches for processing audio and music signals",
@@ -12,12 +12,12 @@
          "status":    "Principal Investigator",
          "research":  "Signal processing applied to extracting information from sound",
          "url":       "http://www.ee.columbia.edu/~dpwe/"},
-         
+
         {"name":      "Brian McFee",
-         "photo":     "http://cosmal.ucsd.edu/~bmcfee/i/bmcfee12.jpg",
+         "photo":     "http://bmcfee.github.io/i/bmcfee13.png",
          "email":     "bmcfee@cs.ucsd.edu",
-         "status":    "Post-Doctoral Research Assistant",
+         "status":    "Past Member/Visitor",
          "research":  "Machine learning tools for analyzing multimedia data",
-         "url":       "http://cosmal.ucsd.edu/~bmcfee/"}
+         "url":       "http://bmcfee.github.io/"}
     ]
 }
