@@ -9,6 +9,8 @@ import urllib2
 import ujson as json
 import re
 import urlparse
+import PIL.Image
+import io
 
 BASE_URL = 'http://0.0.0.0:8000'
 
@@ -18,20 +20,64 @@ def url_exists(url):
     Check if a file exists on the web.  From
     http://stackoverflow.com/questions/2486145/python-check-if-url-to-jpg-exists
 
-    Input:
-        url - url to the web resource
-    Output:
-        result - True or False, depending on if the file exists
+    :parameters:
+        - url : str
+            URL to the web resource
     '''
     print '  Checking URL {}'.format(url)
+    # Check if the URL is relative to document root
+    if url[:len('http://')] != 'http://':
+        url = urlparse.urljoin(BASE_URL, url)
     try:
-        # Check if the URL is relative to document root
-        if url[:len('http://')] != 'http://':
-            url = urlparse.urljoin(BASE_URL, url)
         urllib2.urlopen(urllib2.Request(url))
-        return True
     except:
-        return False
+        raise ValueError('The URL {} is not reachable.'.format(url))
+
+
+def validate_image(url, max_size_kb=100, wh_ratio_min=.5, wh_ratio_max=1.8):
+    '''
+    Makes sure the provided URL points to a valid image which is within the
+    provided size constraints.  Portions from
+    http://effbot.org/zone/pil-image-size.htm
+
+    :parameters:
+        - url : str
+            URL of some image, absolute or relative to document root
+        - max_size_kb : float
+            Maximum size of the image in kilobytes
+        - wh_ratio_min : float
+            Minimum value of (image width/image height)
+        - wh_ratio_max : float
+            Maximum value of (image width/image height)
+    '''
+    # Make sure the URL is valid
+    url_exists(url)
+    # Check if the URL is relative to document root
+    if url[:len('http://')] != 'http://':
+        url = urlparse.urljoin(BASE_URL, url)
+    image_file = urllib2.urlopen(url)
+    # Try to get the image size in bytes from the content header
+    size = image_file.headers.get("content-length")
+    # Some URLS don't return this, in which case we need to load the image
+    if size is None:
+        size = len(image_file.read())
+    # Convert to an integer value
+    size = int(size)
+    # Check size in kb
+    if size/1000 > max_size_kb:
+        raise ValueError('The image {} is larger than the maximum size of {} '
+                         'kB.'.format(url, max_size_kb))
+    # Read in image to get dimensions
+    image = PIL.Image.open(io.BytesIO(image_file.read()))
+    wh_ratio = image.size[0]/float(image.size[1])
+    if wh_ratio < wh_ratio_min or wh_ratio > wh_ratio_max:
+        raise ValueError("The image {} has a width of {} and a height of {}, "
+                         "which doesn't satisfy the specified {} < "
+                         "width/height < {}".format(
+                             url, image.size[0], image.size[1], wh_ratio_min,
+                             wh_ratio_max))
+
+    image_file.close()
 
 
 def error(message):
@@ -51,6 +97,7 @@ for directory in ['people', 'projects', 'publications', 'contact']:
         os.makedirs(os.path.join('site', directory))
     except:
         pass
+
 
 # People page
 print "Compiling people.tpl..."
@@ -74,17 +121,9 @@ with open('data/people.json', 'r') as f:
 # Validate all entries
 for person in people['people']:
     # Check that their homepage exists
-    if not url_exists(person['url']):
-        error("{}'s URL {} does not exist (should be an absolute url, e.g."
-              " http://google.com).".format(person['name'], person['url']))
-    # Check that the photo URL exists
-    if not url_exists(person['photo']):
-        error("{}'s photo {} does not exist (should be an absolute url, e.g."
-              " http://google.com/me.jpg).".format(
-                  person['name'], person['photo']))
-    # TODO: Check photo image size
-    # TODO: Check photo image dimensions
-    # TODO: Check that the photo is actually a photo
+    url_exists(person['url'])
+    # Check that the photo is valid
+    validate_image(person['photo'])
     # Check that the status is valid
     if person['status'] not in statuses:
         error("{}'s status {} is not valid, should be one of {}".format(
@@ -111,8 +150,7 @@ print "Compiling publications.tpl..."
 # URL of DAn's publications page
 DPWE_PUBS_URL = 'http://www.ee.columbia.edu/~dpwe/pubs/'
 # Make sure it still exists/is reachable
-if not url_exists(DPWE_PUBS_URL):
-    error("Couldn't access the publications page {}".format(DPWE_PUBS_URL))
+url_exists(DPWE_PUBS_URL)
 # Get the raw HTML from DAn's pub page
 raw_pubs_data = urllib2.urlopen(DPWE_PUBS_URL).read().decode('ascii', 'ignore')
 # Find the start and end of the actual pubs table
@@ -157,18 +195,9 @@ with open('data/projects.json', 'r') as f:
 # Validate all entries
 for project in projects['projects']:
     # Check that their homepage exists
-    if not url_exists(project['url']):
-        error("Project {}'s URL {} does not exist (should be an absolute url, "
-              "e.g. http://google.com).".format(
-                  project['name'], project['url']))
+    url_exists(project['url'])
     # Check that the photo URL exists
-    if not url_exists(project['image']):
-        error("Project {}'s image {} does not exist (should be an absolute "
-              "url, e.g. http://google.com/me.jpg).".format(
-                  project['name'], project['image']))
-    # TODO: Check image size
-    # TODO: Check image dimensions
-    # TODO: Check that the image is actually a photo
+    validate_image(project['image'])
     # Check that the description is not too long
     if len(project['description']) > 200:
         error("Project {}'s description is too long (longer than 200 "
