@@ -1,35 +1,32 @@
-{% with "People" as page %}
-{% include "header.html" %}
-{% endwith %}
+{% set page = "About" %}
+{% include "header.tpl" %}
 
-<h2>People</h2>
+<h2>About</h2>
 
-{% if peopleList %}
-    <table id="peopleTable">
-        <tr class="topRow">
-            <td>Photo</td>
-            <td>Name</td>
-            <td>Status</td>
-            <td>Research</td>
-            <td>Website</td>
-        </tr>
-    {% for person in peopleList %}
-        <tr style="background-color: {{person.color}}">
-            <td><img src="{{ person.photoURL }}" style="height: 100px" /></td>
-            <td style="white-space: nowrap">
-<script type="text/javascript" language="javascript">
-<!--
-{
-document.write( '<a href="m' + 'a' + 'ilto:' + '{{ person.email|safe }}' + '">' )
-}
-//-->
-</script>{{ person.name }}</a></td>
-            <td>{{ person.status }}</td>
-            <td>{{ person.research }}</td>
-            <td><a href="{{ person.website }}">{{ person.website }}</a></td>
-        </tr>
-    {% endfor %}
-    </table>
-{% endif %}
+<p>The Laboratory for the Recognition and Organization of Speech and Audio (<b>Lab<font color="#d773b4">ROSA</font></b>) conducts research into automatic means of extracting useful information from sound.
+Our vision is of an intelligent 'machine listener', able to interpret live or recorded sound of any type in terms of the descriptions and abstractions that would make sense to a human listener.
+Our research areas include:
+</p>
 
-{% include "footer.html" %}
+<ul>
+  <li>speech, to extract the words, prosodics, speaker characteristics, etc.
+  <li>music, including transcription, classification, and similarity estimation
+  <li>environmental sound, such as everyday acoustic ambiences, or even from atypical environments including underwater
+  <li>sound mixtures, composed of any or all of the above, where the challenge is extracting whatever information is available when observations are partial or obscured.
+</ul>
+
+<p>Applications for automatic high-level sound analysis to be developed include:</p>
+
+<ul>
+  <li>indexing, summarization and searching within large audio archives,
+  such as recorded broadcasts, film catalogs, personal recording devices
+  etc.
+  <li>intelligent interaction technologies that have an 'awareness' of their
+  acoustic environment, and can react appropriately
+  <li>automatic monitoring devices e.g. for rapid response to emergencies
+  in public complexes.
+  <li>intelligent handling of audio and music content, including content-based
+  retrieval, annotation, and recommendation.
+</ul>
+
+{% include "footer.tpl" %}
