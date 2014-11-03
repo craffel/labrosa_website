@@ -1,6 +1,5 @@
-{% with "People" as page %}
+{% set page = "People" %}
 {% include "header.tpl" %}
-{% endwith %}
 
 <h2>People</h2>
 
