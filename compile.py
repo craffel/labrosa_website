@@ -23,6 +23,7 @@ def url_exists(url):
     Output:
         result - True or False, depending on if the file exists
     '''
+    print '  Checking URL {}'.format(url)
     try:
         # Check if the URL is relative to document root
         if url[:len('http://')] != 'http://':
