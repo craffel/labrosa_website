@@ -7,6 +7,7 @@ import os
 import sys
 import urllib2
 import ujson as json
+import re
 
 
 def url_exists(url):
@@ -101,7 +102,7 @@ lazyweb.compile('templates/people.tpl', people, 'site/people/index.html')
 # Publications, which is just retrieved from DAn's page via some hacks
 print "Compiling publications.tpl..."
 # URL of DAn's publications page
-DPWE_PUBS_URL = 'http://0.0.0.0:8000/pubs.html'
+DPWE_PUBS_URL = 'http://www.ee.columbia.edu/~dpwe/pubs/'
 # Make sure it still exists/is reachable
 if not url_exists(DPWE_PUBS_URL):
     error("Couldn't access the publications page {}".format(DPWE_PUBS_URL))
@@ -109,21 +110,25 @@ if not url_exists(DPWE_PUBS_URL):
 raw_pubs_data = urllib2.urlopen(DPWE_PUBS_URL).read().decode('ascii', 'ignore')
 # Find the start and end of the actual pubs table
 table_start = raw_pubs_data.find(
-    '<table border="0" cellspacing="5" cellpadding="5" width="100%">')
+    '<TABLE BORDER="0" CELLSPACING="5" CELLPADDING="5" WIDTH="100%">')
 # Raise an error if the HTML has changed
 if table_start == -1:
     error("Couldn't find the start of the publications table from {}. Its "
           "format may have changed.".format(DPWE_PUBS_URL))
 table_end = raw_pubs_data.find(
-    '<td valign="TOP" bgcolor="#fff4e6" colspan="3">\n<h4>2000</h4>')
+    '<TD VALIGN="TOP" BGCOLOR="#fff4e6" COLSPAN="3">\n<H4>2000</H4>')
 if table_end == -1:
     error("Couldn't find the end of the publications table from {}. Its "
           "format may have changed.".format(DPWE_PUBS_URL))
 # Extract just the table HTML
 pubs_table = raw_pubs_data[table_start:table_end]
 # Change some formatting to make it fit in
-pubs_table = pubs_table.replace('<a name', '<a style="color:black" name')
-pubs_table = pubs_table.replace('<h3>', '<h3 style="text-align:center">')
+pubs_table = pubs_table.replace('<A NAME', '<A STYLE="color:black" NAME')
+pubs_table = pubs_table.replace('<H3>', '<H3 STYLE="text-align:center">')
+# Change relative links to absolute
+pubs_table = re.sub(r'HREF="(?!http)(.*)"',
+                    r'HREF="{}\1"'.format(DPWE_PUBS_URL),
+                    pubs_table)
 # Write out .html file
 lazyweb.compile('templates/publications.tpl', {'table': pubs_table},
                 'site/publications/index.html')
@@ -153,7 +158,7 @@ for project in projects['projects']:
     if not url_exists(project['image']):
         error("Project {}'s image {} does not exist (should be an absolute "
               "url, e.g. http://google.com/me.jpg).".format(
-                  project['name'], project['photo']))
+                  project['name'], project['image']))
     # TODO: Check image size
     # TODO: Check image dimensions
     # TODO: Check that the image is actually a photo
