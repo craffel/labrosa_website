@@ -8,7 +8,7 @@ The website can then be served statically from the site directory.
 
 The file compile.py can be run by simply issuing
 ```
-`python compile.py`
+python compile.py
 ```
 It contains code for not only populating the templates and converting them to HTML, but also for validating the content of the .json files (e.g. checking for broken links, obfuscating email addresses, etc.)
 
