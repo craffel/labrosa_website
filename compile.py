@@ -134,9 +134,9 @@ for person in people['people']:
                              person['name'], person['status'],
                              ", ".join(statuses)))
     # Check that their research description is not too long
-    if len(person['research']) > 100:
+    if len(person['research']) > 120:
         raise ValueError("{}'s research description is too long (longer than "
-                         "100 characters)".format(person['name']))
+                         "120 characters)".format(person['name']))
 
 # Sort people list by status, according to the order of the statuses list
 people['people'].sort(lambda a, b: cmp(statuses.index(a), statuses.index(b)),
