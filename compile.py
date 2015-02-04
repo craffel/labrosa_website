@@ -96,10 +96,8 @@ def obfuscate_string(value):
 
 # Make sure the appropriate site directories exist
 for directory in ['people', 'projects', 'publications', 'contact']:
-    try:
+    if not os.path.exists(os.path.join('site', directory)):
         os.makedirs(os.path.join('site', directory))
-    except:
-        pass
 
 
 # People page
