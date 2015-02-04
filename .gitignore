@@ -92,3 +92,5 @@ Session.vim
 .netrwhist
 *~
 
+# Compiled html files
+*.html
