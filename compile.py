@@ -140,7 +140,6 @@ for person in people['people']:
 people['people'].sort(lambda a, b: cmp(statuses.index(a), statuses.index(b)),
                       lambda x: x['status'])
 
-# TODO: Obfuscate all email addresses
 for person in people['people']:
     person['email'] = obfuscate_string(person['email'])
 
