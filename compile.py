@@ -11,7 +11,7 @@ import urlparse
 import PIL.Image
 import io
 
-BASE_URL = 'http://0.0.0.0:8000'
+BASE_URL = 'http://labrosa.ee.columbia.edu/'
 
 
 def url_exists(url):
