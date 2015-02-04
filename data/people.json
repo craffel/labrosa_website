@@ -18,6 +18,35 @@
          "email":     "bmcfee@cs.ucsd.edu",
          "status":    "Past Member/Visitor",
          "research":  "Machine learning tools for analyzing multimedia data",
-         "url":       "http://bmcfee.github.io/"}
+         "url":       "http://bmcfee.github.io/"},
+
+        {"name":     "Dawen Liang",
+        "photo":     "/files/dliang.jpg",
+        "email":     "dliang@ee.columbia.edu",
+        "status":    "Graduate Research Assistant",
+        "research":  "Bayesian modeling and its application to audio/music and recommendation",
+        "url":       "http://www.ee.columbia.edu/~dliang"},
+
+        {"name":     "Matt McVicar",
+        "photo":     "/files/mmcvicar.jpg",
+        "email":     "mattjamesmcvicar@gmail.com",
+        "status":    "Past Member/Visitor",
+        "research":  "Data-driven appoaches to Music Information Retrieval using web resources",
+        "url":       "http://www.mattmcvicar.com"},
+
+        {"name":      "Zhuo Chen",
+         "photo":     "/files/zchen.jpg",
+         "email":     "zc2204@columbia.edu",
+         "status":    "Graduate Research Assistant",
+         "research":  "Speech enhancement and source separation using Matrix Factorization, Bayesian models, (D/R)Neural Networks, etc.",
+         "url":       "http://www.ee.columbia.edu/~zhuo"},
+
+        {"name":     "Jia-Ming Liu",
+        "photo":     "/files/jliu.png",
+        "email":     "james.liu.n1@gmail.com",
+        "status":    "Visiting Researcher",
+        "research":  "Tools for detecting coughs from patient's personal audio recording",
+        "url":       "http://levis.tongji.edu.cn/"}
+
     ]
 }
