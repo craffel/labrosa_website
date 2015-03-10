@@ -46,6 +46,15 @@
          "email":     "craffel@gmail.com",
          "status":    "Graduate Research Assistant",
          "research":  "Learning-based approaches for processing audio and music signals",
-         "url":       "http://colinraffel.com"}
+         "url":       "http://colinraffel.com"},
+
+        {"name":      "Michael Mandel",
+         "photo":     "http://mr-pc.org/img/through_the_lens_cropped.jpg",
+         "email":     "mim@mr-pc.org",
+         "status":    "PhD Graduate",
+         "research":  "Source separation, music autotagging, robust human and machine speech recognition",
+         "url":       "http://mr-pc.org"}
+
+
     ]
 }
