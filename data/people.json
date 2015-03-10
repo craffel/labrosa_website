@@ -53,8 +53,14 @@
          "email":     "mim@mr-pc.org",
          "status":    "PhD Graduate",
          "research":  "Source separation, music autotagging, robust human and machine speech recognition",
-         "url":       "http://mr-pc.org"}
+         "url":       "http://mr-pc.org"},
 
+        {"name":      "Diego Furtado Silva",
+         "photo":     "http://sites.labic.icmc.usp.br/dfs/photo.jpg",
+         "email":     "diego.fsilva@gmail.com",
+         "status":    "Past Member/Visitor",
+         "research":  "Algorithms for audio and time series mining",
+         "url":       "http://sites.labic.icmc.usp.br/dfs/"}
 
     ]
 }
