@@ -1,11 +1,4 @@
 {   "people": [
-        {"name":      "Colin Raffel",
-         "photo":     "/files/craffel.jpg",
-         "email":     "craffel@gmail.com",
-         "status":    "Graduate Research Assistant",
-         "research":  "Learning-based approaches for processing audio and music signals",
-         "url":       "http://colinraffel.com"},
-
         {"name":      "Dan Ellis",
          "photo":     "http://www.ee.columbia.edu/~dpwe/dpwe-2010-10.jpg",
          "email":     "dpwe@ee.columbia.edu",
@@ -46,7 +39,13 @@
         "email":     "james.liu.n1@gmail.com",
         "status":    "Visiting Researcher",
         "research":  "Tools for detecting coughs from patient's personal audio recording",
-        "url":       "http://levis.tongji.edu.cn/"}
+        "url":       "http://levis.tongji.edu.cn/"},
 
+        {"name":      "Colin Raffel",
+         "photo":     "/files/craffel.jpg",
+         "email":     "craffel@gmail.com",
+         "status":    "Graduate Research Assistant",
+         "research":  "Learning-based approaches for processing audio and music signals",
+         "url":       "http://colinraffel.com"}
     ]
 }
