@@ -55,12 +55,26 @@
          "research":  "Source separation, music autotagging, robust human and machine speech recognition",
          "url":       "http://mr-pc.org"},
 
+        {"name":      "Byung Suk Lee",
+         "photo":     "http://www.ee.columbia.edu/~bsl/pic/bsl.png",
+         "email":     "bsl@ee.columbia.edu",
+         "status":    "PhD Graduate",
+         "research":  "Noise robust pitch tracking system by Subband Autocorrelation Classification",
+         "url":       "http://www.ee.columbia.edu/~bsl/"},
+
         {"name":      "Diego Furtado Silva",
          "photo":     "http://sites.labic.icmc.usp.br/dfs/photo.jpg",
          "email":     "diego.fsilva@gmail.com",
          "status":    "Past Member/Visitor",
          "research":  "Algorithms for audio and time series mining",
-         "url":       "http://sites.labic.icmc.usp.br/dfs/"}
+         "url":       "http://sites.labic.icmc.usp.br/dfs/"},
+
+        {"status":    "PhD Graduate",
+         "name":      "Thierry Bertin-Mahieux",
+         "url":       "http://tbertinmahieux.com/",
+         "photo":     "http://tbertinmahieux.com/pics/tbm_profile2014.jpg",
+         "research":  "Large-scale pattern discovery in music audio and metadata collections",
+         "email":    "info@tbertinmahieux.com"}
 
     ]
 }
