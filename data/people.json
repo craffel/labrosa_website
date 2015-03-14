@@ -48,6 +48,13 @@
          "research":  "Learning-based approaches for processing audio and music signals",
          "url":       "http://colinraffel.com"},
 
+        {"name":      "Minshu Zhan",
+         "photo":     "/files/mzhan.jpg",
+         "email":     "minshuzhan@gmail.com",
+         "status":    "Graduate Research Assistant",
+         "research":  "Pattern recognition in musical sounds",
+         "url":       "http://www.columbia.edu/~mz2468/"},
+
         {"name":      "Michael Mandel",
          "photo":     "http://mr-pc.org/img/through_the_lens_cropped.jpg",
          "email":     "mim@mr-pc.org",
