@@ -81,7 +81,14 @@
          "url":       "http://tbertinmahieux.com/",
          "photo":     "http://tbertinmahieux.com/pics/tbm_profile2014.jpg",
          "research":  "Large-scale pattern discovery in music audio and metadata collections",
-         "email":    "info@tbertinmahieux.com"}
+         "email":    "info@tbertinmahieux.com"},
+
+        {"name":     "Cyril Gaudefroy",
+         "photo":    "/files/cyril.jpg",
+         "email":    "cg2883@columbia.edu",
+         "status":   "Visiting Researcher",
+         "research": "Signal processing applied to music, jazz",
+         "url":      "https://www.flickr.com/photos/123201992@N04/"}
 
     ]
 }
