@@ -23,7 +23,7 @@ document.write( '<a href="m' + 'a' + 'ilto:' + '{{ person.email|safe }}' + '">' 
 </script>{{ person.name }}</a></td>
             <td>{{ person.status }}</td>
             <td>{{ person.research }}</td>
-            <td><a href="{{ person.url }}">{{ person.url }}</a></td>
+            <td style="text-align: center;"><a href="{{ person.url }}"><img src="/files/link.png" /></a></td>
         </tr>
     {% endfor %}
     </table>
