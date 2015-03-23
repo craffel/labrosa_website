@@ -56,7 +56,7 @@
          "url":       "http://www.columbia.edu/~mz2468/"},
 
         {"name":      "Michael Mandel",
-         "photo":     "http://mr-pc.org/img/through_the_lens_cropped.jpg",
+         "photo":     "/files/mim.jpg",
          "email":     "mim@mr-pc.org",
          "status":    "PhD Graduate",
          "research":  "Source separation, music autotagging, robust human and machine speech recognition",
