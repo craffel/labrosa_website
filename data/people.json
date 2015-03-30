@@ -88,7 +88,14 @@
          "email":    "cg2883@columbia.edu",
          "status":   "Visiting Researcher",
          "research": "Signal processing applied to music, jazz",
-         "url":      "https://www.flickr.com/photos/123201992@N04/"}
+         "url":      "https://www.flickr.com/photos/123201992@N04/"},
+
+        {"name":      "Courtenay Cotton",
+         "photo":     "http://www.ee.columbia.edu/~cvcotton/cvc.jpg",
+         "email":     "cvcotton@gmail.com",
+         "status":    "PhD Graduate",
+         "research":  "Machine learning to identify and classify sounds in environmental audio and video",
+         "url":       "http://www.ee.columbia.edu/~cvcotton/"}
 
     ]
 }
